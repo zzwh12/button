@@ -9,7 +9,10 @@ Gitee：
 ```
 git clone https://gitee.com/zzwh12/button ./plugins/Lain-plugin/plugins/button/button
 ```
-
+Github：
+```
+git clone https://github.com/zzwh12/button ./plugins/Lain-plugin/plugins/button/button
+```
 
 ## 特别鸣谢
 
