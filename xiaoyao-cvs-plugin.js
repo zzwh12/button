@@ -69,7 +69,6 @@ export default class Button {
 
       { label: '签到', data: '#签到' },
       { label: '社区签到', data: '#米游社全部签到' },
-
       { label: '米游社登录', data: '#扫码登录' },
     ]
     return Bot.Button(button)
