@@ -13,27 +13,27 @@ export default class Button {
           fnc: 'help'
         },
         {
-          reg: /^#(星铁|原神)?获取游戏角色详情( )?(\d{9})?$/,
+          reg: /^#(星铁|原神|绝区零)?获取游戏角色详情( )?(\d{9})?$/,
           fnc: 'profile'
         },
         {
-          reg: /^#(星铁|原神)?(更新)?(全部)?面板(更新)?( )?(\d{9})?$/,
+          reg: /^#(星铁|原神|绝区零)?(更新)?(全部)?面板(更新)?( )?(\d{9})?$/,
           fnc: 'profile'
         },
         {
-          reg: '^(#|/)?(原神|星铁)?绑定(#|/)?(绑定)?( )?(uid|UID)?( )?[1-9]',
+          reg: '^(#|/)?(原神|星铁|绝区零)?绑定(#|/)?(绑定)?( )?(uid|UID)?( )?[1-9]',
           fnc: 'bingUid'
         },
         {
-          reg: '^#(原神|星铁)?(删除)?( )?(uid|UID)',
+          reg: '^#(原神|星铁|绝区零)?(删除)?( )?(uid|UID)',
           fnc: 'bingUid'
         },
         {
-          reg: /^#?(原神|星铁)?(群|群内)?(排名|排行)?(最强|最高|最高分|最牛|第一)+.+/,
+          reg: /^#?(原神|星铁|绝区零)?(群|群内)?(排名|排行)?(最强|最高|最高分|最牛|第一)+.+/,
           fnc: 'rank'
         },
         {
-          reg: /^#?(原神|星铁)?(群|群内)?(.*)(排名|排行)(榜)?$/,
+          reg: /^#?(原神|星铁|绝区零)?(群|群内)?(.*)(排名|排行)(榜)?$/,
           fnc: 'rank'
         },
         {
@@ -41,7 +41,7 @@ export default class Button {
           fnc: 'detail'
         },
         {
-          reg: /^(#(原神|星铁)?(角色|查询|查询角色|角色查询|人物)[ |0-9]*$)|(^(#*uid|#*UID)\+*[1|2|5-9][0-9]{8}$)|(^#[+|＋]*[1|2|5-9][0-9]{8})/,
+          reg: /^(#(原神|星铁|绝区零)?(角色|查询|查询角色|角色查询|人物)[ |0-9]*$)|(^(#*uid|#*UID)\+*[1|2|5-9][0-9]{8}$)|(^#[+|＋]*[1|2|5-9][0-9]{8})/,
           fnc: 'avatarList'
         },
         {
@@ -79,7 +79,14 @@ export default class Button {
 
   profile (e) {
     const roleList = e?.newChar ? (Object.keys(e.newChar) || []) : []
-    const game = (e.game === 'sr' || e.isSr) ? '星铁' : '原神'
+    let game;
+    if (e.game === 'sr' || e.isSr) {
+        game = '星铁';
+    } else if (e.game === 'zzz' || e.iszzz) {
+        game = '绝区零';
+    } else {
+        game = '原神';
+    }    
     const button = []
 
     const list = [
@@ -96,7 +103,14 @@ export default class Button {
   }
 
   bingUid (e) {
-    const game = (e.game === 'sr' || e.isSr) ? '星铁' : '原神'
+    let game;
+    if (e.game === 'sr' || e.isSr) {
+        game = '星铁';
+    } else if (e.game === 'zzz' || e.iszzz) {
+        game = '绝区零';
+    } else {
+        game = '原神';
+    }
     const list = [
       { label: '扫码登录', data: '#扫码绑定' }
     ]
@@ -113,7 +127,14 @@ export default class Button {
   async rank (e) {
     let role = e.msg.replace(/(#|星铁|原神|喵喵|最强|最高分|第一|词条|双爆|双暴|极限|最高|最多|最牛|圣遗物|评分|群内|群|排名|排行|面板|面版|详情|榜)/g, '')
     const char = Character.get(role)
-    const game = (char.game === 'sr') ? '星铁' : ''
+    let game;
+    if (e.game === 'sr' || e.isSr) {
+        game = '星铁';
+    } else if (e.game === 'zzz' || e.iszzz) {
+        game = '绝区零';
+    } else {
+        game = '';
+    }
     if (!char) {
       if (e.msg.match(/#(最强|最高分)(面板|排行)/)) {
         role = ''
@@ -133,7 +154,14 @@ export default class Button {
 
   async detail (e) {
     const char = Character.get(e.avatar)
-    const game = (char.game === 'sr') ? '星铁' : ''
+    let game;
+    if (e.game === 'sr' || e.isSr) {
+        game = '星铁';
+    } else if (e.game === 'zzz' || e.iszzz) {
+        game = '绝区零';
+    } else {
+        game = '';
+    }
     if (/(详情|详细|面板)更新$/.test(e.raw_message) || (/更新/.test(e.raw_message) && /(详情|详细|面板)$/.test(e.raw_message))) {
       const button = this.profile(e)
       return button
