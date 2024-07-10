@@ -78,8 +78,9 @@ export default class Button {
     const button = [
       { label: '原神体力', data: '#原神体力' },
       { label: '星铁体力', data: '#星铁体力' },
+      { label: '绝区零体力', data: '#绝区零体力' },
+    
       { label: '全部体力', data: '#全部体力' },
-
       { label: '刷新ck', data: '#刷新ck' },
       { label: '米游社登录', data: '#扫码登录' }
     ]
