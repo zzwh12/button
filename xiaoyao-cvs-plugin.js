@@ -65,9 +65,11 @@ export default class Button {
     const button = [
       { label: '原神签到', callback: '#原神签到' },
       { label: '星铁签到', callback: '#星铁签到' },
+      { label: '绝区零签到', data: '#绝区零签到' },
 
       { label: '米游社登录', callback: '#扫码登录' },
-      { label: '签到', callback: '#签到' }
+      { label: '签到', callback: '#签到' },
+      { label: '社区签到', data: '#米游社全部签到' },
     ]
     return Bot.Button(button, 2)
   }
