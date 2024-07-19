@@ -69,7 +69,7 @@ export default class Button {
 
       { label: '米游社登录', callback: '#扫码登录' },
       { label: '签到', callback: '#签到' },
-      { label: '社区签到', data: '#米游社全部签到' },
+      { label: '社区签到', callback: '#米游社全部签到' },
     ]
     return Bot.Button(button, 2)
   }
