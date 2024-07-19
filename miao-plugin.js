@@ -78,7 +78,7 @@ export default class Button {
   }
 
   profile (e) {
-    const roleList = e?.newChar ? (Object.keys(e.newChar) || []) : []
+    const roleList = e?.newChar ? Object.keys(e.newChar) : [];
     let game;
     if (e.game === 'sr' || e.isSr) {
         game = '星铁';
@@ -238,6 +238,6 @@ export default class Button {
       list[3].push({ label: '图鉴', callback: `${char.name}图鉴` })
       list[4].push({ label: `${char.name}照片` })
     }
-    return Bot.Button(list)
+    return Bot.Button(list, list.length)
   }
 }
