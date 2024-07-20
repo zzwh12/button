@@ -1,5 +1,5 @@
 export default class Button {
-  constructor () {
+  constructor() {
     this.plugin = {
       name: 'xiaoyao-cvs-plugin',
       dsc: 'xiaoyao-cvs-plugin',
@@ -18,7 +18,7 @@ export default class Button {
           fnc: 'note'
         },
         {
-          reg: '^#*(原神|星铁)?(((更新|获取|导出)?(抽卡|小助手)记录)|((全部)?(抽卡|集录|抽奖|角色|武器|常驻|up|新手|光锥|全部)池*(记录|祈愿|分析|统计))|((记录|抽卡|安卓|苹果|电脑|pc|ios)帮助))$',
+          reg: '^#*(原神|星铁)?(((更新|获取|导出)?抽卡记录)|((全部)?(抽卡|抽奖|角色|武器|常驻|up|新手|光锥|全部)池*(记录|祈愿|分析|统计))|((记录|抽卡|安卓|苹果|电脑|pc|ios)帮助))$',
           fnc: 'gacha'
         },
         {
@@ -41,72 +41,80 @@ export default class Button {
     }
   }
 
-  async user () {
+  async user() {
     const button = [
-      { label: '米币查询', data: '#米币查询' },
-      { label: '签到', data: '#签到' },
-      { label: '抽卡记录', data: '#更新抽卡记录' },
+      { label: '米币查询', callback: '#米币查询' },
+      { label: '签到', callback: '#签到' },
+      { label: '抽卡记录', callback: '#更新抽卡记录' },
 
-      { label: '今日素材', data: '#今日素材' },
-      { label: '体力', data: '#体力' },
-      { label: '原石统计', data: '#原石统计' },
+      { label: '今日素材', callback: '#今日素材' },
+      { label: '体力', callback: '#体力' },
+      { label: '原石统计', callback: '#原石统计' },
 
-      { label: '圣遗物', data: '#圣遗物列表' },
-      { label: '深渊', data: '#喵喵深渊' },
-      { label: '练度统计', data: '#练度统计' },
+      { label: '圣遗物', callback: '#圣遗物列表' },
+      { label: '深渊', callback: '#喵喵深渊' },
+      { label: '练度统计', callback: '#练度统计' },
 
-      { label: '米游社登录', data: '#扫码登录' },
-      { label: '刷新ck', data: '#刷新ck' }
+      { label: '米游社登录', callback: '#扫码登录' },
+      { label: '刷新ck', callback: '#刷新ck' }
     ]
-    return Bot.Button(button)
+    return Bot.Button(button, 4)
   }
 
-  async sign () {
+  async sign() {
     const button = [
-      { label: '原神签到', data: '#原神签到' },
-      { label: '星铁签到', data: '#星铁签到' },
+      { label: '原神签到', callback: '#原神签到' },
+      { label: '星铁签到', callback: '#星铁签到' },
       { label: '绝区零签到', data: '#绝区零签到' },
 
-      { label: '签到', data: '#签到' },
-      { label: '社区签到', data: '#米游社全部签到' },
-      { label: '米游社登录', data: '#扫码登录' },
+      { label: '米游社登录', callback: '#扫码登录' },
+      { label: '签到', callback: '#签到' },
+      { label: '社区签到', callback: '#米游社全部签到' },
     ]
-    return Bot.Button(button)
+    return Bot.Button(button, 2)
   }
 
-  async note () {
+  async note() {
     const button = [
-      { label: '原神体力', data: '#原神体力' },
-      { label: '星铁体力', data: '#星铁体力' },
+      { label: '原神体力', callback: '#原神体力' },
+      { label: '星铁体力', callback: '#星铁体力' },
+
       { label: '绝区零体力', data: '#绝区零体力' },
-    
-      { label: '全部体力', data: '#全部体力' },
-      { label: '刷新ck', data: '#刷新ck' },
-      { label: '米游社登录', data: '#扫码登录' }
+      { label: '全部体力', callback: '#全部体力' },
+
+      { label: '刷新ck', callback: '#刷新ck' },
+      { label: '米游社登录', callback: '#扫码登录' }
     ]
-    return Bot.Button(button)
+    return Bot.Button(button, 3)
   }
 
-  async gacha (e) {
-    const game = e.isSr ? '星铁' : ''
-    const button = [
-      { label: '角色记录', data: `#${game}角色池记录` },
-      { label: '武器记录', data: `#${game}${game ? '光锥' : '武器'}池记录` },
-      { label: '集录记录', data: `#${game}集录池记录` },
+  async gacha(e) {
+    let button
+    if (e.isSr) {
+      button = [
+        { label: '角色记录', callback: '#星铁角色池记录' },
+        { label: '光锥记录', callback: '#星铁光锥池记录' },
+        { label: '全部记录', callback: '#星铁全部记录' },
 
-      { label: '常驻记录', data: `#${game}常驻池记录` },
-      { label: '全部记录', data: `#${game}全部记录` },
-      { label: '米游社登录', data: '#扫码登录' },
-      
-      { label: '角色统计', data: `#${game}角色池统计` },
-      { label: '武器统计', data: `#${game}${game ? '光锥' : '武器'}池统计` },
-      { label: '集录统计', data: `#${game}集录池统计` },
+        { label: '角色统计', callback: '#星铁角色池统计' },
+        { label: '光锥统计', callback: '#星铁光锥池统计' },
+        { label: '全部统计', callback: '#星铁全部统计' }
+      ]
+      return Bot.Button(button, 2)
+    } else {
+      button = [
+        { label: '角色记录', callback: '#角色池记录' },
+        { label: '武器记录', callback: '#武器池记录' },
+        { label: '全部记录', callback: '#全部记录' },
 
-      { label: '常驻统计', data: `#${game}常驻池统计` },
-      { label: '全部统计', data: `#${game}全部统计` },
+        { label: '角色统计', callback: '#角色池统计' },
+        { label: '武器统计', callback: '#武器池统计' },
+        { label: '全部统计', callback: '#全部统计' },
 
-    ]
-    if (!game) button.push({ label: '更新记录', data: '#更新抽卡记录' })
-    return Bot.Button(button, 3)
+        { label: '米游社登录', callback: '#扫码登录' },
+        { label: '更新记录', callback: '#更新抽卡记录' }
+      ]
+      return Bot.Button(button, 3)
+    }
   }
 }
