@@ -58,7 +58,7 @@ export default class Button {
       { label: '米游社登录', data: '#扫码登录', style: 4 },
       { label: '刷新ck', data: '#刷新ck', style: 4 }
     ]
-    return Bot.Button(button, 4)
+    return Bot.Button(button, 3)
   }
 
   async sign() {
@@ -71,7 +71,7 @@ export default class Button {
       { label: '社区签到', data: '#米游社全部签到', style: 4 },
       { label: '米游社登录', data: '#扫码登录', style: 4 },
     ]
-    return Bot.Button(button, 2)
+    return Bot.Button(button, 3)
   }
 
   async note() {
@@ -122,7 +122,7 @@ export default class Button {
         { label: '光锥统计', callback: '#星铁光锥池统计' },
         { label: '全部统计', callback: '#星铁全部统计' }
       ]
-      return Bot.Button(button, 2)
+      return Bot.Button(button, 3)
     } else {
       button = [
         { label: '角色记录', callback: '#角色池记录' },
