@@ -114,27 +114,27 @@ export default class Button {
     let button
     if (e.isSr) {
       button = [
-        { label: '角色记录', callback: '#星铁角色池记录' },
-        { label: '光锥记录', callback: '#星铁光锥池记录' },
-        { label: '全部记录', callback: '#星铁全部记录' },
+        { label: '角色记录', callback: '#星铁角色池记录', style: 1 },
+        { label: '光锥记录', callback: '#星铁光锥池记录', style: 1 },
+        { label: '全部记录', callback: '#星铁全部记录', style: 1 },
 
-        { label: '角色统计', callback: '#星铁角色池统计' },
-        { label: '光锥统计', callback: '#星铁光锥池统计' },
-        { label: '全部统计', callback: '#星铁全部统计' }
+        { label: '角色统计', callback: '#星铁角色池统计', style: 1 },
+        { label: '光锥统计', callback: '#星铁光锥池统计', style: 1 },
+        { label: '全部统计', callback: '#星铁全部统计', style: 1 }
       ]
       return Bot.Button(button, 3)
     } else {
       button = [
-        { label: '角色记录', callback: '#角色池记录' },
-        { label: '武器记录', callback: '#武器池记录' },
-        { label: '全部记录', callback: '#全部记录' },
+        { label: '角色记录', callback: '#角色池记录', style: 1 },
+        { label: '武器记录', callback: '#武器池记录', style: 1 },
+        { label: '全部记录', callback: '#全部记录', style: 1 },
 
-        { label: '角色统计', callback: '#角色池统计' },
-        { label: '武器统计', callback: '#武器池统计' },
-        { label: '全部统计', callback: '#全部统计' },
+        { label: '角色统计', callback: '#角色池统计', style: 1 },
+        { label: '武器统计', callback: '#武器池统计', style: 1 },
+        { label: '全部统计', callback: '#全部统计', style: 1 },
 
-        { label: '米游社登录', callback: '#扫码登录' },
-        { label: '更新记录', callback: '#更新抽卡记录' }
+        { label: '米游社登录', callback: '#扫码登录', style: 4 },
+        { label: '更新记录', callback: '#更新抽卡记录', style: 4 }
       ]
       return Bot.Button(button, 3)
     }
