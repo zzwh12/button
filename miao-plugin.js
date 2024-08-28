@@ -62,17 +62,17 @@ export default class Button {
 
   help () {
     const button = [
-      { label: '圣遗物', data: '#圣遗物列表' },
-      { label: '深渊', data: '#喵喵深渊' },
-      { label: '练度统计', data: '#原神练度统计' },
+      { label: '圣遗物', data: '#圣遗物列表', style: 4 },
+      { label: '深渊', data: '#喵喵深渊', style: 4 },
+      { label: '练度统计', data: '#原神练度统计', style: 4 },
 
-      { label: '体力', data: '#原神体力' },
-      { label: '今日素材', data: '#今日素材' },
-      { label: '签到', data: '#原神签到' },
+      { label: '体力', data: '#体力', style: 4 },
+      { label: '今日素材', data: '#今日素材', style: 4 },
+      { label: '签到', data: '#签到', style: 4 },
 
-      { label: '绑定uid', data: '#原神绑定' },
-      { label: '米游社扫码', data: '#扫码登录' },
-      { label: '更新面板', data: '#原神更新面板' }
+      { label: '绑定uid', data: '#绑定', style: 4 },
+      { label: '米游社扫码', data: '#扫码登录', style: 4 },
+      { label: '更新面板', data: '#更新面板', style: 4 }
     ]
     return Bot.Button(button, 3)
   }
@@ -90,15 +90,15 @@ export default class Button {
     const button = []
 
     const list = [
-      { label: '扫码登录', data: '#扫码登录' },
-      { label: '更新面板', data: `#${game}更新面板` },
-      { label: '绑定uid', data: `#${game}绑定` }
+      { label: '扫码登录', data: '#扫码登录', style: 4 },
+      { label: '更新面板', data: `#${game}更新面板`, style: 4 },
+      { label: '绑定uid', data: `#${game}绑定`, style: 4 }
     ]
     button.push(...Bot.Button(list))
 
     const list2 = []
-    for (let role of roleList) { list2.push({ label: role, data: `#${game}${role}面板` }) }
-    button.push(...Bot.Button(list2, 2))
+    for (let role of roleList) { list2.push({ label: role, data: `#${game}${role}面板`, style: 3 }) }
+    button.push(...Bot.Button(list2, 3))
     return button
   }
 
@@ -112,11 +112,11 @@ export default class Button {
         game = '原神';
     }
     const list = [
-      { label: '扫码登录', data: '#扫码绑定' }
+      { label: '扫码登录', data: '#扫码绑定', style: 4 }
     ]
     const list2 = [
-      { label: '更新面板', data: `#${game}更新面板` },
-      { label: '绑定uid', data: `#${game}绑定` }
+      { label: '更新面板', data: `#${game}更新面板`, style: 4 },
+      { label: '绑定uid', data: `#${game}绑定`, style: 4 }
     ]
     const button = []
     button.push(...Bot.Button(list))
@@ -141,13 +141,13 @@ export default class Button {
       } else return false
     }
     const list = [
-      { label: `最强${role ? role : '面板'}`, data: `#最强${role}` },
-      { label: `最高分${role ? role : '面板'}`, data: `#最高分${role}` },
+      { label: `最强${role ? role : '面板'}`, data: `#最强${role}`, style: 4 },
+      { label: `最高分${role ? role : '面板'}`, data: `#最高分${role}`, style: 4 },
 
-      { label: '最强排行', data: `#最强${role}排行` },
-      { label: '最高分排行', data: `#最高分${role}排行` },
+      { label: '最强排行', data: `#最强${role}排行`, style: 4 },
+      { label: '最高分排行', data: `#最高分${role}排行`, style: 4 },
 
-      { label: `${role ? role : '更新'}面板`, data: `#${game}${role ? role : '更新'}面板` }
+      { label: `${role ? role : '更新'}面板`, data: `#${game}${role ? role : '更新'}面板`, style: 4 }
     ]
     return Bot.Button(list, 2)
   }
@@ -169,17 +169,17 @@ export default class Button {
       if (!char.name) return false
       const button = []
       const list = [
-        { label: `${char.name}攻略`, data: `#${game}${char.name}攻略` },
-        { label: `${char.name}排行`, data: `#${game}${char.name}排行` },
+        { label: `${char.name}攻略`, data: `#${game}${char.name}攻略`, style: 4 },
+        { label: `${char.name}排行`, data: `#${game}${char.name}排行`, style: 4 },
 
-        { label: `${char.name}面板`, data: `#${game}${char.name}面板` },
-        { label: '极限面板', data: `#${game}${char.name}极限面板` }
+        { label: `${char.name}面板`, data: `#${game}${char.name}面板`, style: 4 },
+        { label: '极限面板', data: `#${game}${char.name}极限面板`, style: 4 }
       ]
       button.push(...Bot.Button(list, 2))
       const list2 = [
-        { label: '绑定uid', data: `#${game}绑定` },
-        { label: '扫码登录', data: '#扫码登录' },
-        { label: '更新面板', data: `#${game}更新面板` }
+        { label: '绑定uid', data: `#${game}绑定`, style: 4 },
+        { label: '扫码登录', data: '#扫码登录', style: 4 },
+        { label: '更新面板', data: `#${game}更新面板`, style: 4 }
       ]
       button.push(...Bot.Button(list2))
       return button
@@ -189,11 +189,11 @@ export default class Button {
   avatarList (e) {
     const game = (e.game === 'sr' || e.isSr) ? '星铁' : ''
     const list = [
-      { label: '深渊', data: `#${game}深渊` },
-      { label: '探索', data: `#${game}探索` },
-      { label: game == '星铁' ? '星琼' : '原石', data: `#${game == '星铁' ? '星琼' : '原石'}` },
-      { label: '练度统计', data: `#${game}练度统计` },
-      { label: '体力', data: '#体力' }
+      { label: '深渊', data: `#${game}深渊`, style: 4 },
+      { label: '探索', data: `#${game}探索`, style: 4 },
+      { label: game == '星铁' ? '星琼' : '原石', data: `#${game == '星铁' ? '星琼' : '原石'}`, style: 4 },
+      { label: '练度统计', data: `#${game}练度统计`, style: 4 },
+      { label: '体力', data: '#体力', style: 4 }
     ]
     const button = Bot.Button(list, 3)
     return button
@@ -216,27 +216,27 @@ export default class Button {
         { label: `${char.name}攻略` }
       ],
       [
-        { label: `${char.name}${game ? '行迹' : '天赋'}` },
-        { label: `${char.name}${game ? '星魂' : '命座'}` }
+        { label: `${char.name}${game ? '行迹' : '天赋'}`, style: 4 },
+        { label: `${char.name}${game ? '星魂' : '命座'}`, style: 4 }
       ],
       [
-        { label: `${char.name}面板`, data: `#${game}${char.name}面板` },
-        { label: '扫码登录', data: '#扫码登录' }
+        { label: `${char.name}面板`, data: `#${game}${char.name}面板`, style: 4 },
+        { label: '扫码登录', data: '#扫码登录', style: 4 }
       ]
     ]
     if (material) {
       list.push([
-        { label: '材料统计', data: `#${game}${char.name}材料` },
-        { label: '今日素材', data: '#今日素材' }
+        { label: '材料统计', data: `#${game}${char.name}材料`, style: 4 },
+        { label: '今日素材', data: '#今日素材', style: 4 }
       ])
       list.push([
-        { label: `${material.label}点位`, data: `#${material.label}在哪里` }
+        { label: `${material.label}点位`, data: `#${material.label}在哪里`, style: 4 }
       ])
     }
     if (!game) {
-      list[0].push({ label: '参考面板', data: `#${game}${char.name}参考面板` })
-      list[3].push({ label: '图鉴', data: `${char.name}图鉴` })
-      list[4].push({ label: `${char.name}照片` })
+      list[0].push({ label: '参考面板', data: `#${game}${char.name}参考面板`, style: 4 })
+      list[3].push({ label: '图鉴', data: `${char.name}图鉴`, style: 4 })
+      list[4].push({ label: `${char.name}照片`, style: 4 })
     }
     return Bot.Button(list)
   }

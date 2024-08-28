@@ -49,23 +49,23 @@ export default class Button {
     type[0] = type[0].replace(/武器/, '武器池').replace(/光锥/, '光锥池').replace(/常驻/, '常驻池')
 
     let list = [
-      { label: 'up池1', callback: `#${game}${number[0]}` },
-      { label: 'up池2', callback: `#${game}${number[0]}2` },
-      { label: '常驻池', callback: `#${game}${number[0]}常驻池` }
+      { label: 'up池1', callback: `#${game}${number[0]}`, style: 4 },
+      { label: 'up池2', callback: `#${game}${number[0]}2`, style: 4 },
+      { label: '常驻池', callback: `#${game}${number[0]}常驻池`, style: 4 }
     ]
     button.push(list)
 
     list = [
-      { label: '定轨', callback: `#${game}定轨` },
-      { label: `${weapon}池`, callback: `#${game}${number[0]}${weapon}池` }
+      { label: '定轨', callback: `#${game}定轨`, style: 4 },
+      { label: `${weapon}池`, callback: `#${game}${number[0]}${weapon}池`, style: 4 }
     ]
     button.push(list)
 
     list = [
-      { label: '单抽', callback: `#${game}单抽${type[0]}` },
-      { label: '十连', callback: `#${game}十连${type[0]}` }
+      { label: '单抽', callback: `#${game}单抽${type[0]}`, style: 4 },
+      { label: '十连', callback: `#${game}十连${type[0]}`, style: 4 }
     ]
-    if (e.bot.config?.markdown && [4, '4'].includes(e.bot.config.markdown.type)) { list.push({ label: '保底', callback: `#${game}${(type[0].match(/武器|光锥/)) ? '八十' : '九十'}连${type[0]}` }) }
+    if (e.bot.config?.markdown && [4, '4'].includes(e.bot.config.markdown.type)) { list.push({ label: '保底', callback: `#${game}${(type[0].match(/武器|光锥/)) ? '八十' : '九十'}连${type[0]}`, style: 4 }) }
     button.push(list)
 
     type = ['', '2', '常驻池', `${weapon}池`]
@@ -76,11 +76,11 @@ export default class Button {
 
     if (number[0] == '派蒙') {
       list = [
-        { label: '交给派蒙抽', callback: '抽卡的钱被小派蒙拿去买甜甜花酿鸡了' }
+        { label: '交给派蒙抽', callback: '抽卡的钱被小派蒙拿去买甜甜花酿鸡了', style: 3 }
       ]
     } else {
       list = [
-        { label: '交给派蒙抽', callback: `#${game}${number[0]}${type[0]}` }
+        { label: '交给派蒙抽', callback: `#${game}${number[0]}${type[0]}`, style: 3 }
       ]
     }
     button.push(list)
@@ -90,7 +90,7 @@ export default class Button {
 
   relife () {
     const button = [
-      { label: '重生提瓦特之我是', callback: '#转生' }
+      { label: '重生提瓦特之我是', callback: '#转生', style: 4 }
     ]
     return Bot.Button(button)
   }

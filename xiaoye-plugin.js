@@ -43,19 +43,19 @@ export default class Button {
 
   async help () {
     const button = [
-      { label: '刷遗物随机', callback: '刷圣遗物随机' },
-      { label: '刷遗物xx', data: '刷圣遗物' },
+      { label: '刷遗物随机', callback: '刷圣遗物随机', style: 4 },
+      { label: '刷遗物xx', data: '刷圣遗物', style: 4 },
 
-      { label: '强化遗物1-20', data: '强化圣遗物' },
-      { label: '看上次遗物', callback: '查看上次圣遗物' },
-      { label: '保存遗物1-9', data: '保存圣遗物' },
+      { label: '强化遗物1-20', data: '强化圣遗物', style: 4 },
+      { label: '看上次遗物', callback: '查看上次圣遗物', style: 4 },
+      { label: '保存遗物1-9', data: '保存圣遗物', style: 4 },
 
-      { label: '删遗物id', data: '删除圣遗物' },
-      { label: '查看圣遗物别名', callback: '查看圣遗物别名' },
-      { label: '刷遗物xx，x次', data: '刷圣遗物x次' },
+      { label: '删遗物id', data: '删除圣遗物', style: 4 },
+      { label: '查看圣遗物别名', callback: '查看圣遗物别名', style: 4 },
+      { label: '刷遗物xx，x次', data: '刷圣遗物x次', style: 4 },
 
-      { label: '一键强化遗物', callback: '一键强化圣遗物' },
-      { label: '查看遗物第x页', data: '查看圣遗物第x页' }
+      { label: '一键强化遗物', callback: '一键强化圣遗物', style: 4 },
+      { label: '查看遗物第x页', data: '查看圣遗物第x页', style: 4 }
     ]
     return Bot.Button(button, 2)
   }
@@ -63,19 +63,19 @@ export default class Button {
 
   async chuhuoba () {
     const button = [
-      { label: '刷遗物随机', callback: '刷圣遗物随机' },
-      { label: '刷遗物xx', data: '刷圣遗物' },
+      { label: '刷遗物随机', callback: '刷圣遗物随机', style: 4 },
+      { label: '刷遗物xx', data: '刷圣遗物', style: 4 },
 
-      { label: '强化遗物1-20', data: '强化圣遗物' },
-      { label: '看上次遗物', callback: '查看上次圣遗物' },
-      { label: '保存遗物1-9', data: '保存圣遗物' },
+      { label: '强化遗物1-20', data: '强化圣遗物', style: 4 },
+      { label: '看上次遗物', callback: '查看上次圣遗物', style: 4 },
+      { label: '保存遗物1-9', data: '保存圣遗物', style: 4 },
 
-      { label: '删遗物id', data: '删除圣遗物' },
-      { label: '查看圣遗物别名', callback: '查看圣遗物别名' },
-      { label: '刷遗物xx，x次', data: '刷圣遗物x次' },
+      { label: '删遗物id', data: '删除圣遗物', style: 4 },
+      { label: '查看圣遗物别名', callback: '查看圣遗物别名', style: 4 },
+      { label: '刷遗物xx，x次', data: '刷圣遗物x次', style: 4 },
 
-      { label: '一键强化遗物', callback: '一键强化圣遗物' },
-      { label: '查看遗物第x页', data: '查看圣遗物第x页' }
+      { label: '一键强化遗物', callback: '一键强化圣遗物', style: 4 },
+      { label: '查看遗物第x页', data: '查看圣遗物第x页', style: 4 }
     ]
     return Bot.Button(button, 2)
   }
@@ -84,19 +84,19 @@ export default class Button {
 
   async qianghua () {
     const button = [
-      { label: '刷遗物随机', callback: '刷圣遗物随机' },
-      { label: '刷遗物xx', data: '刷圣遗物' },
+      { label: '刷遗物随机', callback: '刷圣遗物随机', style: 4 },
+      { label: '刷遗物xx', data: '刷圣遗物', style: 4 },
 
-      { label: '强化遗物1-20', data: '强化圣遗物' },
-      { label: '看上次遗物', callback: '查看上次圣遗物' },
-      { label: '保存遗物1-9', data: '保存圣遗物' },
+      { label: '强化遗物1-20', data: '强化圣遗物', style: 4 },
+      { label: '看上次遗物', callback: '查看上次圣遗物', style: 4 },
+      { label: '保存遗物1-9', data: '保存圣遗物', style: 4 },
 
       { label: '删遗物id', data: '删除圣遗物' },
-      { label: '查看圣遗物别名', callback: '查看圣遗物别名' },
-      { label: '刷遗物xx，x次', data: '刷圣遗物x次' },
+      { label: '查看圣遗物别名', callback: '查看圣遗物别名', style: 4 },
+      { label: '刷遗物xx，x次', data: '刷圣遗物x次', style: 4 },
 
-      { label: '一键强化遗物', callback: '一键强化圣遗物' },
-      { label: '查看遗物第x页', data: '查看圣遗物第x页' }
+      { label: '一键强化遗物', callback: '一键强化圣遗物', style: 4 },
+      { label: '查看遗物第x页', data: '查看圣遗物第x页', style: 4 }
     ]
     return Bot.Button(button, 2)
   }
@@ -105,19 +105,19 @@ export default class Button {
 
   async alias () {
     const button = [
-      { label: '刷遗物随机', callback: '刷圣遗物随机' },
-      { label: '刷遗物xx', data: '刷圣遗物' },
+      { label: '刷遗物随机', callback: '刷圣遗物随机', style: 4 },
+      { label: '刷遗物xx', data: '刷圣遗物', style: 4 },
 
-      { label: '强化遗物1-20', data: '强化圣遗物' },
-      { label: '看上次遗物', callback: '查看上次圣遗物' },
-      { label: '保存遗物1-9', data: '保存圣遗物' },
+      { label: '强化遗物1-20', data: '强化圣遗物', style: 4 },
+      { label: '看上次遗物', callback: '查看上次圣遗物', style: 4 },
+      { label: '保存遗物1-9', data: '保存圣遗物', style: 4 },
 
-      { label: '删遗物id', data: '删除圣遗物' },
-      { label: '查看圣遗物别名', callback: '查看圣遗物别名' },
-      { label: '刷遗物xx，x次', data: '刷圣遗物x次' },
+      { label: '删遗物id', data: '删除圣遗物', style: 4 },
+      { label: '查看圣遗物别名', callback: '查看圣遗物别名', style: 4 },
+      { label: '刷遗物xx，x次', data: '刷圣遗物x次', style: 4 },
 
-      { label: '一键强化遗物', callback: '一键强化圣遗物' },
-      { label: '查看遗物第x页', data: '查看圣遗物第x页' }
+      { label: '一键强化遗物', callback: '一键强化圣遗物', style: 4 },
+      { label: '查看遗物第x页', data: '查看圣遗物第x页', style: 4 }
     ]
     return Bot.Button(button, 2)
   }
@@ -125,19 +125,19 @@ export default class Button {
 
   async viewLastTime () {
     const button = [
-      { label: '刷遗物随机', callback: '刷圣遗物随机' },
-      { label: '刷遗物xx', data: '刷圣遗物' },
+      { label: '刷遗物随机', callback: '刷圣遗物随机', style: 4 },
+      { label: '刷遗物xx', data: '刷圣遗物', style: 4 },
 
-      { label: '强化遗物1-20', data: '强化圣遗物' },
-      { label: '看上次遗物', callback: '查看上次圣遗物' },
-      { label: '保存遗物1-9', data: '保存圣遗物' },
+      { label: '强化遗物1-20', data: '强化圣遗物', style: 4 },
+      { label: '看上次遗物', callback: '查看上次圣遗物', style: 4 },
+      { label: '保存遗物1-9', data: '保存圣遗物', style: 4 },
 
-      { label: '删遗物id', data: '删除圣遗物' },
-      { label: '查看圣遗物别名', callback: '查看圣遗物别名' },
-      { label: '刷遗物xx，x次', data: '刷圣遗物x次' },
+      { label: '删遗物id', data: '删除圣遗物', style: 4 },
+      { label: '查看圣遗物别名', callback: '查看圣遗物别名', style: 4 },
+      { label: '刷遗物xx，x次', data: '刷圣遗物x次', style: 4 },
 
-      { label: '一键强化遗物', callback: '一键强化圣遗物' },
-      { label: '查看遗物第x页', data: '查看圣遗物第x页' }
+      { label: '一键强化遗物', callback: '一键强化圣遗物', style: 4 },
+      { label: '查看遗物第x页', data: '查看圣遗物第x页', style: 4 }
     ]
     return Bot.Button(button, 2)
   }
@@ -146,19 +146,19 @@ export default class Button {
 
 async save () {
     const button = [
-      { label: '刷遗物随机', callback: '刷圣遗物随机' },
-      { label: '刷遗物xx', data: '刷圣遗物' },
+      { label: '刷遗物随机', callback: '刷圣遗物随机', style: 4 },
+      { label: '刷遗物xx', data: '刷圣遗物', style: 4 },
 
-      { label: '强化遗物1-20', data: '强化圣遗物' },
-      { label: '看上次遗物', callback: '查看上次圣遗物' },
-      { label: '保存遗物1-9', data: '保存圣遗物' },
+      { label: '强化遗物1-20', data: '强化圣遗物', style: 4 },
+      { label: '看上次遗物', callback: '查看上次圣遗物', style: 4 },
+      { label: '保存遗物1-9', data: '保存圣遗物', style: 4 },
 
       { label: '删遗物id', data: '删除圣遗物' },
-      { label: '查看圣遗物别名', callback: '查看圣遗物别名' },
-      { label: '刷遗物xx，x次', data: '刷圣遗物x次' },
+      { label: '查看圣遗物别名', callback: '查看圣遗物别名', style: 4 },
+      { label: '刷遗物xx，x次', data: '刷圣遗物x次', style: 4 },
 
-      { label: '一键强化遗物', callback: '一键强化圣遗物' },
-      { label: '查看遗物第x页', data: '查看圣遗物第x页' }
+      { label: '一键强化遗物', callback: '一键强化圣遗物', style: 4 },
+      { label: '查看遗物第x页', data: '查看圣遗物第x页', style: 4 }
     ]
     return Bot.Button(button, 2)
   }
@@ -168,19 +168,19 @@ async save () {
 
 async view () {
     const button = [
-      { label: '刷遗物随机', callback: '刷圣遗物随机' },
-      { label: '刷遗物xx', data: '刷圣遗物' },
+      { label: '刷遗物随机', callback: '刷圣遗物随机', style: 4 },
+      { label: '刷遗物xx', data: '刷圣遗物', style: 4 },
 
-      { label: '强化遗物1-20', data: '强化圣遗物' },
-      { label: '看上次遗物', callback: '查看上次圣遗物' },
-      { label: '保存遗物1-9', data: '保存圣遗物' },
+      { label: '强化遗物1-20', data: '强化圣遗物', style: 4 },
+      { label: '看上次遗物', callback: '查看上次圣遗物', style: 4 },
+      { label: '保存遗物1-9', data: '保存圣遗物', style: 4 },
 
-      { label: '删遗物id', data: '删除圣遗物' },
-      { label: '查看圣遗物别名', callback: '查看圣遗物别名' },
-      { label: '刷遗物xx，x次', data: '刷圣遗物x次' },
+      { label: '删遗物id', data: '删除圣遗物', style: 4 },
+      { label: '查看圣遗物别名', callback: '查看圣遗物别名', style: 4 },
+      { label: '刷遗物xx，x次', data: '刷圣遗物x次', style: 4 },
 
-      { label: '一键强化遗物', callback: '一键强化圣遗物' },
-      { label: '查看遗物第x页', data: '查看圣遗物第x页' }
+      { label: '一键强化遗物', callback: '一键强化圣遗物', style: 4 },
+      { label: '查看遗物第x页', data: '查看圣遗物第x页', style: 4 }
     ]
     return Bot.Button(button, 2)
   }
@@ -190,19 +190,19 @@ async view () {
 
 async delete () {
     const button = [
-      { label: '刷遗物随机', callback: '刷圣遗物随机' },
-      { label: '刷遗物xx', data: '刷圣遗物' },
+      { label: '刷遗物随机', callback: '刷圣遗物随机', style: 4 },
+      { label: '刷遗物xx', data: '刷圣遗物', style: 4 },
 
-      { label: '强化遗物1-20', data: '强化圣遗物' },
-      { label: '看上次遗物', callback: '查看上次圣遗物' },
-      { label: '保存遗物1-9', data: '保存圣遗物' },
+      { label: '强化遗物1-20', data: '强化圣遗物', style: 4 },
+      { label: '看上次遗物', callback: '查看上次圣遗物', style: 4 },
+      { label: '保存遗物1-9', data: '保存圣遗物', style: 4 },
 
-      { label: '删遗物id', data: '删除圣遗物' },
-      { label: '查看圣遗物别名', callback: '查看圣遗物别名' },
-      { label: '刷遗物xx，x次', data: '刷圣遗物x次' },
+      { label: '删遗物id', data: '删除圣遗物', style: 4 },
+      { label: '查看圣遗物别名', callback: '查看圣遗物别名', style: 4 },
+      { label: '刷遗物xx，x次', data: '刷圣遗物x次', style: 4 },
 
-      { label: '一键强化遗物', callback: '一键强化圣遗物' },
-      { label: '查看遗物第x页', data: '查看圣遗物第x页' }
+      { label: '一键强化遗物', callback: '一键强化圣遗物', style: 4 },
+      { label: '查看遗物第x页', data: '查看圣遗物第x页', style: 4 }
     ]
     return Bot.Button(button, 2)
   }
