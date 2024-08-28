@@ -43,7 +43,6 @@ export default class Button {
 
   async user() {
     const button = [
-<<<<<<< HEAD
       { label: '米币查询', data: '#米币查询', style: 1 },
       { label: '签到', data: '#签到', style: 1 },
       { label: '抽卡记录', data: '#更新抽卡记录', style: 1 },
@@ -58,29 +57,12 @@ export default class Button {
 
       { label: '米游社登录', data: '#扫码登录', style: 4 },
       { label: '刷新ck', data: '#刷新ck', style: 4 }
-=======
-      { label: '米币查询', callback: '#米币查询' },
-      { label: '签到', callback: '#签到' },
-      { label: '抽卡记录', callback: '#更新抽卡记录' },
-
-      { label: '今日素材', callback: '#今日素材' },
-      { label: '体力', callback: '#体力' },
-      { label: '原石统计', callback: '#原石统计' },
-
-      { label: '圣遗物', callback: '#圣遗物列表' },
-      { label: '深渊', callback: '#喵喵深渊' },
-      { label: '练度统计', callback: '#练度统计' },
-
-      { label: '米游社登录', callback: '#扫码登录' },
-      { label: '刷新ck', callback: '#刷新ck' }
->>>>>>> e1101a4238ab1f6330eab0bf595f0314318842af
     ]
     return Bot.Button(button, 4)
   }
 
   async sign() {
     const button = [
-<<<<<<< HEAD
       { label: '原神签到', data: '#原神签到', style: 1 },
       { label: '星铁签到', data: '#星铁签到', style: 1 },
       { label: '绝区零签到', data: '#绝区零签到', style: 1 },
@@ -88,22 +70,12 @@ export default class Button {
       { label: '签到', data: '#签到', style: 4 },
       { label: '社区签到', data: '#米游社全部签到', style: 4 },
       { label: '米游社登录', data: '#扫码登录', style: 4 },
-=======
-      { label: '原神签到', callback: '#原神签到' },
-      { label: '星铁签到', callback: '#星铁签到' },
-      { label: '绝区零签到', data: '#绝区零签到' },
-
-      { label: '米游社登录', callback: '#扫码登录' },
-      { label: '签到', callback: '#签到' },
-      { label: '社区签到', callback: '#米游社全部签到' },
->>>>>>> e1101a4238ab1f6330eab0bf595f0314318842af
     ]
     return Bot.Button(button, 2)
   }
 
   async note() {
     const button = [
-<<<<<<< HEAD
       { label: '原神体力', data: '#原神体力', style: 1 },
       { label: '星铁体力', data: '#星铁体力', style: 1 },
       { label: '绝区零体力', data: '#绝区零体力', style: 1 },
@@ -135,17 +107,6 @@ export default class Button {
 
     ]
     if (!game) button.push({ label: '更新记录', data: '#更新抽卡记录', style: 1 })
-=======
-      { label: '原神体力', callback: '#原神体力' },
-      { label: '星铁体力', callback: '#星铁体力' },
-
-      { label: '绝区零体力', data: '#绝区零体力' },
-      { label: '全部体力', callback: '#全部体力' },
-
-      { label: '刷新ck', callback: '#刷新ck' },
-      { label: '米游社登录', callback: '#扫码登录' }
-    ]
->>>>>>> e1101a4238ab1f6330eab0bf595f0314318842af
     return Bot.Button(button, 3)
   }
 
