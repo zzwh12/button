@@ -20,7 +20,7 @@ export default class Button {
         priority: 90,
         rule: [
           {
-            reg: '^#*星铁记录帮助$',
+            reg: /^#*(原神|星铁)?(记录|安卓|电脑|苹果|抽卡|抽卡记录)(帮助|教程|绑定|步骤)|(星铁)(更新|获取|导出)抽卡记录$/,
             fnc: 'buttonCenter'
           }
         ]
