@@ -120,7 +120,9 @@ export default class Button {
 
         { label: '角色统计', callback: '#星铁角色池统计', style: 1 },
         { label: '光锥统计', callback: '#星铁光锥池统计', style: 1 },
-        { label: '全部统计', callback: '#星铁全部统计', style: 1 }
+        { label: '全部统计', callback: '#星铁全部统计', style: 1 },
+
+        { label: '星铁抽卡帮助', callback: '#星铁记录帮助', style: 4 }
       ]
       return Bot.Button(button, 3)
     } else {
