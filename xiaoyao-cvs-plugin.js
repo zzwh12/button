@@ -63,15 +63,12 @@ export default class Button {
 
   async sign() {
     const button = [
-      { label: '原神签到', data: '#原神签到', style: 1 },
-      { label: '星铁签到', data: '#星铁签到', style: 1 },
-      { label: '绝区零签到', data: '#绝区零签到', style: 1 },
+      { label: '签到', data: '#签到', style: 1 },
+      { label: '社区签到', data: '#米游社全部签到', style: 1 },
 
-      { label: '签到', data: '#签到', style: 4 },
-      { label: '社区签到', data: '#米游社全部签到', style: 4 },
       { label: '米游社登录', data: '#扫码登录', style: 4 },
     ]
-    return Bot.Button(button, 3)
+    return Bot.Button(button, 2)
   }
 
   async note() {
