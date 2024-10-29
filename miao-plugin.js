@@ -78,7 +78,8 @@ export default class Button {
   }
 
   profile (e) {
-    const roleList = e?.newChar ? Object.keys(e.newChar) : [];
+    const maxButtons = 12
+    const roleList = e?.newChar ? (Object.keys(e.newChar).slice(0, maxButtons) || []) : []
     let game;
     if (e.game === 'sr' || e.isSr) {
         game = '星铁';
