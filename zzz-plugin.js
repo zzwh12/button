@@ -38,7 +38,7 @@ export default class Button {
 
     const list1 = []
     for (let role of roleList) {
-      list1.push({ label: role, callback: `/绝区零${role}面板`, style: 3 })
+      list1.push({ label: role, callback: `/绝区零${role}面板`, style: 1 })
     if (list1.length === 12) {
       break // 一旦达到12个按钮，停止添加更多
   }

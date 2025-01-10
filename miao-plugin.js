@@ -49,7 +49,7 @@ export default class Button {
           fnc: 'avatarList'
         },
         {
-          reg: '#喵喵WIKI',
+          reg: '#喵喵(扩展)WIKI',
           fnc: 'tip'
         },
         {
@@ -98,7 +98,7 @@ export default class Button {
     button.push(...Bot.Button(list))
 
     const list2 = []
-    for (let role of roleList) { list2.push({ label: role, data: `#${game}${role}面板`, style: 3 }) }
+    for (let role of roleList) { list2.push({ label: role, data: `#${game}${role}面板`, style: 1 }) }
     button.push(...Bot.Button(list2, 3))
     return button
   }
