@@ -173,7 +173,7 @@ export default class Button {
         { label: `${char.name}面板`, data: `#${game}${char.name}面板`, style: 4 },
         { label: '极限面板', data: `#${game}${char.name}极限面板`, style: 4 }
       ]
-      button.push(...Bot.Button(list, 3))
+      button.push(...Bot.Button(list, 2))
       const list2 = [
         { label: '绑定uid', data: `#${game}绑定`, style: 4 },
         { label: '扫码登录', data: '#扫码登录', style: 4 },
