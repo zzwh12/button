@@ -85,16 +85,19 @@ export default class Button {
   }
 
   profile (e) {
+    const cacheKey = `${e.group_id}-${e.user_id}-profile`
+    if (Button.buttonSentCache[cacheKey]) {
+        return []
+    }
+    let game = ''
+    if (e.game === 'sr' || e.isSr) {
+        game = '星铁'
+    } else if (e.game === 'zzz' || e.isSr) {
+        game = '绝区零'
+    }
     const maxButtons = 12
     const roleList = e?.newChar ? (Object.keys(e.newChar).slice(0, maxButtons) || []) : []
-    let game;
-    if (e.game === 'sr' || e.isSr) {
-        game = '星铁';
-    } else if (e.game === 'zzz' || e.iszzz) {
-        game = '绝区零';
-    } else {
-        game = '原神';
-    }    
+
     const button = []
 
     const list = [
@@ -105,7 +108,8 @@ export default class Button {
     button.push(...Bot.Button(list))
 
     const list2 = []
-    for (let role of roleList) { list2.push({ label: role, data: `#${game}${role}面板`, style: 1 }) }
+    for (let role of roleList)
+      list2.push({ label: role, callback: `#${game ? game + '' : ''}${role}面板`, style: 1 })
     button.push(...Bot.Button(list2, 3))
 
     Button.buttonSentCache[cacheKey] = true
@@ -113,21 +117,31 @@ export default class Button {
     return button
   }
 
-  bingUid (e) {
-    let game;
+  bingUid(e) {
+    let game = ''
     if (e.game === 'sr' || e.isSr) {
-      game = '星铁';
-    } else if (e.game === 'zzz' || e.iszzz) {
-        game = '绝区零';
-    } else {
-        game = '原神';
+        game = '星铁'
+    } else if (e.game === 'zzz' || e.isSr) {
+        game = '绝区零'
     }
     const list = [
-      { label: '扫码登录', data: '#扫码绑定', style: 4 }
+      [
+        { label: '原神绑定UID', data: `#绑定`, style: 4 },
+        { label: '原神切换UID', data: `#uid`, style: 4 },
+        { label: '原神删除UID', data: `#删除uid`, style: 4 },
+      ],[
+        { label: '星铁绑定UID', data: `#星铁绑定`, style: 4 },
+        { label: '星铁切换UID', data: `#星铁uid`, style: 4 },
+        { label: '星铁删除UID', data: `#星铁删除uid`, style: 4 },
+      ],[
+        { label: '绝区零绑定UID', data: `#绝区零绑定`, style: 4 },
+        { label: '绝区零切换UID', data: `#绝区零uid`, style: 4 },
+        { label: '绝区零删除UID', data: `#绝区零删除uid`, style: 4 },
+      ]
     ]
     const list2 = [
-      { label: '更新面板', data: `#${game}更新面板`, style: 4 },
-      { label: '绑定uid', data: `#${game}绑定`, style: 4 }
+      { label: '更新面板', callback: `#${game ? game + '更新面板' : '更新面板'}`, style: 4 },
+      { label: '扫码绑定', callback: '#扫码绑定', style: 4 }
     ]
     const button = []
     button.push(...Bot.Button(list))
@@ -138,41 +152,33 @@ export default class Button {
   async rank (e) {
     let role = e.msg.replace(/(#|星铁|原神|喵喵|最强|最高分|第一|词条|双爆|双暴|极限|最高|最多|最牛|圣遗物|评分|群内|群|排名|排行|面板|面版|详情|榜)/g, '')
     const char = Character.get(role)
-    let game;
-    if (e.game === 'sr' || e.isSr) {
-        game = '星铁';
-    } else if (e.game === 'zzz' || e.iszzz) {
-        game = '绝区零';
-    } else {
-        game = '';
-    }
+    const game = (char.game === 'sr') ? '星铁' : ''
     if (!char) {
       if (e.msg.match(/#(最强|最高分)(面板|排行)/)) {
         role = ''
       } else return false
     }
     const list = [
-      { label: `最强${role ? role : '面板'}`, data: `#最强${role}`, style: 4 },
-      { label: `最高分${role ? role : '面板'}`, data: `#最高分${role}`, style: 4 },
-
-      { label: '最强排行', data: `#最强${role}排行`, style: 4 },
-      { label: '最高分排行', data: `#最高分${role}排行`, style: 4 },
-
-      { label: `${role ? role : '更新'}面板`, data: `#${game}${role ? role : '更新'}面板`, style: 4 }
+      [
+      { label: `最强${role}排行`, callback: `#最强${role}排行`, style: 4 },
+      { label: `最高分${role}排行`, callback: `#最高分${role}排行`, style: 4 },
+      ],[
+      { label: `最强${ (role == '') ? '面板' : role }`, callback: `#${game}最强${role}`, style: 4 },
+      { label: `最高分${ (role == '') ? '面板' : role }`, callback: `#${game}最高分${role}`, style: 4 },
+      ],[
+      { label: '最强排行', callback: `#最强排行`, style: 4 },
+      { label: '最高分排行', callback: `#最高分排行`, style: 4 },
+      ],[
+      { label: `${role}面板`, callback: `#${e.game === 'sr' ? '星铁' : ''}${role}面板`, style: 4 },
+      { label: `极限${role}`, callback: `#${game}${role}极限面板`, style: 4 },
+    ]
     ]
     return Bot.Button(list, 2)
   }
 
   async detail (e) {
     const char = Character.get(e.avatar)
-    let game;
-    if (e.game === 'sr' || e.isSr) {
-        game = '星铁';
-    } else if (e.game === 'zzz' || e.iszzz) {
-        game = '绝区零';
-    } else {
-        game = '';
-    }
+    const game = (char.game === 'sr') ? '星铁' : ''
     if (/(详情|详细|面板)更新$/.test(e.raw_message) || (/更新/.test(e.raw_message) && /(详情|详细|面板)$/.test(e.raw_message))) {
       const button = this.profile(e)
       return button
@@ -180,17 +186,26 @@ export default class Button {
       if (!char.name) return false
       const button = []
       const list = [
-        { label: `${char.name}攻略`, data: `#${game}${char.name}攻略`, style: 4 },
-        { label: `${char.name}排行`, data: `#${game}${char.name}排行`, style: 4 },
-
-        { label: `${char.name}面板`, data: `#${game}${char.name}面板`, style: 4 },
-        { label: '极限面板', data: `#${game}${char.name}极限面板`, style: 4 }
+        [
+        { label: `最强${char.name}`, callback: `#${e.game === 'sr' ? '星铁' : ''}最强${char.name}`, },
+        { label: `极限${char.name}`, callback: `#${e.game === 'sr' ? '星铁' : '原神'}${char.name}极限面板`, },
+      ],[
+        { label: `${char.name}攻略`, callback: `#${e.game === 'sr' ? '星铁' : ''}${char.name}攻略`, },
+        { label: `${char.name}排行`, callback: `#${e.game === 'sr' ? '星铁' : ''}${char.name}排行`, },
+      ],[
+        { label: `${char.name}天赋`, callback: `#${e.game === 'sr' ? '星铁' : ''}${char.name}天赋`, },
+        { label: `${char.name}命座`, callback: `#${e.game === 'sr' ? '星铁' : ''}${char.name}命座`, },
+      ],[
+        { label: `${char.name}面板`, callback: `#${e.game === 'sr' ? '星铁' : '原神'}${char.name}面板`, },
+        { label: `面板更换`, data: `#${game}${char.name}面板换`, },
+        { label: `${char.name}COS`, callback: `#${e.game === 'sr' ? '星铁' : '原神'}cos${char.name}`, },
+      ],
       ]
-      button.push(...Bot.Button(list, 2))
+      button.push(...Bot.Button(list, 3))
       const list2 = [
-        { label: '绑定uid', data: `#${game}绑定`, style: 4 },
-        { label: '扫码登录', data: '#扫码登录', style: 4 },
-        { label: '更新面板', data: `#${game}更新面板`, style: 4 }
+        { label: '更新面板', callback: `#${game}更新面板` },
+        { label: '绑定UID', data: `#${game}绑定` },
+        { label: '扫码绑定', callback: `#扫码绑定` },
       ]
       button.push(...Bot.Button(list2))
       return button
@@ -200,13 +215,24 @@ export default class Button {
   avatarList(e) {
     const game = (e.game === 'sr' || e.isSr) ? '星铁' : ''
     const list = [
-      { label: '深渊', data: `#${game}深渊`, style: 4 },
-      { label: '探索', data: `#${game}探索`, style: 4 },
-      { label: game == '星铁' ? '星琼' : '原石', data: `#${game == '星铁' ? '星琼' : '原石'}`, style: 4 },
-      { label: '练度统计', data: `#${game}练度统计`, style: 4 },
-      { label: '体力', data: '#体力', style: 4 }
+      [
+        { label: '角色', callback: `#${game}角色` },
+        { label: '探索', callback: `#探索` },
+      ],[
+        { label: '深渊', callback: `#${game}深渊` },
+        { label: '武器', callback: '#武器' },
+      ],[
+        { label: '原石', callback: `#原石` },
+        { label: '星琼', callback: `#星琼` },
+      ],[
+        { label: '原石统计', callback: `#原石统计` },
+        { label: '星琼统计', callback: `#${game}星琼统计` },
+      ],[
+        { label: '扫码绑定', callback: `#扫码绑定` },
+        { label: '刷新CK', callback: `#刷新ck` },
+      ]
     ]
-    const button = Bot.Button(list, 3)
+    const button = Bot.Button(list,3)
     return button
   }
   
