@@ -85,19 +85,16 @@ export default class Button {
   }
 
   profile (e) {
-    const cacheKey = `${e.group_id}-${e.user_id}-profile`
-    if (Button.buttonSentCache[cacheKey]) {
-        return []
-    }
-    let game = ''
-    if (e.game === 'sr' || e.isSr) {
-        game = '星铁'
-    } else if (e.game === 'zzz' || e.isSr) {
-        game = '绝区零'
-    }
     const maxButtons = 12
     const roleList = e?.newChar ? (Object.keys(e.newChar).slice(0, maxButtons) || []) : []
-
+    let game;
+    if (e.game === 'sr' || e.isSr) {
+        game = '星铁';
+    } else if (e.game === 'zzz' || e.iszzz) {
+        game = '绝区零';
+    } else {
+        game = '原神';
+    }    
     const button = []
 
     const list = [
@@ -116,12 +113,14 @@ export default class Button {
     return button
   }
 
-  bingUid(e) {
-    let game = ''
+  bingUid (e) {
+    let game;
     if (e.game === 'sr' || e.isSr) {
-        game = '星铁'
-    } else if (e.game === 'zzz' || e.isSr) {
-        game = '绝区零'
+      game = '星铁';
+    } else if (e.game === 'zzz' || e.iszzz) {
+        game = '绝区零';
+    } else {
+        game = '原神';
     }
     const list = [
       { label: '扫码登录', data: '#扫码绑定', style: 4 }
@@ -139,7 +138,14 @@ export default class Button {
   async rank (e) {
     let role = e.msg.replace(/(#|星铁|原神|喵喵|最强|最高分|第一|词条|双爆|双暴|极限|最高|最多|最牛|圣遗物|评分|群内|群|排名|排行|面板|面版|详情|榜)/g, '')
     const char = Character.get(role)
-    const game = (char.game === 'sr') ? '星铁' : ''
+    let game;
+    if (e.game === 'sr' || e.isSr) {
+        game = '星铁';
+    } else if (e.game === 'zzz' || e.iszzz) {
+        game = '绝区零';
+    } else {
+        game = '';
+    }
     if (!char) {
       if (e.msg.match(/#(最强|最高分)(面板|排行)/)) {
         role = ''
@@ -159,7 +165,14 @@ export default class Button {
 
   async detail (e) {
     const char = Character.get(e.avatar)
-    const game = (char.game === 'sr') ? '星铁' : ''
+    let game;
+    if (e.game === 'sr' || e.isSr) {
+        game = '星铁';
+    } else if (e.game === 'zzz' || e.iszzz) {
+        game = '绝区零';
+    } else {
+        game = '';
+    }
     if (/(详情|详细|面板)更新$/.test(e.raw_message) || (/更新/.test(e.raw_message) && /(详情|详细|面板)$/.test(e.raw_message))) {
       const button = this.profile(e)
       return button
@@ -228,9 +241,23 @@ export default class Button {
     
     if (material) {
       list.push([
-        { label: `${material.label}点位`, callback: `#${material.label}在哪`, style: 4 }
+        { label: '材料统计', data: `#${game}${char.name}材料`, style: 4 },
+        { label: '今日素材', data: '#今日素材', style: 4 }
+      ])
+      list.push([
+        { label: `${material.label}点位`, data: `#${material.label}在哪里`, style: 4 }
       ])
     }
-    return Bot.Button(list)
+    if (!game) {
+      list[0].push({ label: '参考面板', data: `#${game}${char.name}参考面板`, style: 4 })
+      list[3].push({ label: '图鉴', data: `#${game}${char.name}图鉴`, style: 4 })
+      list[4].push({ label: `${char.name}照片`, style: 4 })
+    }
+    return Bot.Button(list, list.length)
   }
 }
+
+// 每2秒清除一次缓存
+setInterval(() => {
+  Button.buttonSentCache = {}
+}, 2000)
