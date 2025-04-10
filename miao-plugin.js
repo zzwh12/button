@@ -126,22 +126,22 @@ export default class Button {
     }
     const list = [
       [
-        { label: '原神绑定UID', data: `#绑定`, style: 4 },
+        { label: '原神绑定UID', data: `#绑定`, style: 1 },
         { label: '原神切换UID', data: `#uid`, style: 4 },
-        { label: '原神删除UID', data: `#删除uid`, style: 4 },
+        { label: '原神删除UID', data: `#删除uid`, style: 3 },
       ],[
-        { label: '星铁绑定UID', data: `#星铁绑定`, style: 4 },
+        { label: '星铁绑定UID', data: `#星铁绑定`, style: 1 },
         { label: '星铁切换UID', data: `#星铁uid`, style: 4 },
-        { label: '星铁删除UID', data: `#星铁删除uid`, style: 4 },
+        { label: '星铁删除UID', data: `#星铁删除uid`, style: 3 },
       ],[
-        { label: '绝区零绑定UID', data: `#绝区零绑定`, style: 4 },
+        { label: '绝区零绑定UID', data: `#绝区零绑定`, style: 1 },
         { label: '绝区零切换UID', data: `#绝区零uid`, style: 4 },
-        { label: '绝区零删除UID', data: `#绝区零删除uid`, style: 4 },
+        { label: '绝区零删除UID', data: `#绝区零删除uid`, style: 3 },
       ]
     ]
     const list2 = [
-      { label: '更新面板', callback: `#${game ? game + '更新面板' : '更新面板'}`, style: 4 },
-      { label: '扫码绑定', callback: '#扫码绑定', style: 4 }
+      { label: '更新面板', callback: `#${game ? game + '更新面板' : '更新面板'}`, style: 2 },
+      { label: '扫码绑定', callback: '#扫码绑定', style: 2 }
     ]
     const button = []
     button.push(...Bot.Button(list))
