@@ -9,7 +9,7 @@ export default class Button {
       priority: 101,
       rule: [
         {
-          reg: '^#?(喵喵)?(命令|帮助|菜单|help|说明|功能|指令|使用说明)$',
+          reg: '^#?(喵喵|云崽)?(命令|帮助|菜单|help|说明|功能|指令|使用说明)$',
           fnc: 'help'
         },
         {
@@ -198,7 +198,6 @@ export default class Button {
       ],[
         { label: `${char.name}面板`, callback: `#${e.game === 'sr' ? '星铁' : '原神'}${char.name}面板`, },
         { label: `面板更换`, data: `#${game}${char.name}面板换`, },
-        { label: `${char.name}COS`, callback: `#${e.game === 'sr' ? '星铁' : '原神'}cos${char.name}`, },
       ],
       ]
       button.push(...Bot.Button(list, 3))
